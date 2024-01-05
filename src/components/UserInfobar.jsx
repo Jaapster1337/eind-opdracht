@@ -1,16 +1,17 @@
+import {getRandomGame} from "../helpers/getRandomGame.js";
+
 export function UserInfobar() {
     return (
         <>
             <section className="UserInfobar-container">
-                <div className="game-img">
-                    <img src="" alt="game cover art"/>
+                <div className="user-img">
+                    <img src="" alt="user profile image"/>
                 </div>
                 <div className="user-info">
                     <p>user name</p>
                     <button type="button">Played</button>
-                    <button type="button">Favorite</button>
-
-                    <p>game genre</p>
+                    <button type="button" onClick={getRandomGame}>Favorite</button>
+                    <p>account creation date</p>
                 </div>
             </section>
         </>
