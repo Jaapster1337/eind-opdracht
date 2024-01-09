@@ -35,6 +35,11 @@ footer{
   align-items: center;
 }
 
+.game-img img{
+  width: inherit;
+}
+
+
 .game-info{
   display: flex;
   flex-direction: column;
@@ -54,3 +59,4 @@ footer{
   display: flex;
   flex-direction: column;
 }
+
