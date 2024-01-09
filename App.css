@@ -24,26 +24,10 @@ footer{
 
 .navbar{
   display: flex;
-  justify-content: center;
-}
-
-.Gamebar-container{
-  width: 200px;
-  border: 2px solid grey;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.game-img img{
-  width: inherit;
+  justify-content: space-evenly;
 }
 
 
-.game-info{
-  display: flex;
-  flex-direction: column;
-}
 
 
 .UserInfobar-container{

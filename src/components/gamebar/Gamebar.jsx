@@ -1,5 +1,6 @@
-import {getRandomGame} from "../helpers/getRandomGame.js";
+import {getRandomGame} from "../../helpers/getRandomGame.js";
 import {useEffect, useState} from "react";
+
 
 export function Gamebar() {
 
@@ -31,9 +32,10 @@ export function Gamebar() {
                 {/*</script>*/}
                 <div className="game-info">
                     <p>{game ? game.name : 'Game Name'}</p>
-                    <p>{game ? game.publishers['name'] : 'Publisher'}</p>
+                    <p>{game ? (game.developers.length > 0 ? game.developers[0].name : 'Developer') : 'No developer found'}</p>
                     <p>{game ? game.released : 'Release Date'}</p>
-                    <p>{game ? game.genre : 'Game Genre'}</p>
+                    <p>{game ? (game.genres.length > 0 ? game.genres[0].name : 'Game Genre' ) : 'No genres found'}</p>
+                    <p>{game ? (game.genres.length > 1 ? game.genres[1].name : '' ) : 'No genres found'}</p>
                 </div>
             </section>
         </>

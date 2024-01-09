@@ -1,0 +1,22 @@
+.Gamebar-container{
+    width: 200px;
+    font-size: 0.75rem;
+    border: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.game-img img{
+    width: inherit;
+}
+
+.game-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.game-info p{
+    margin: 5px 0;
+}

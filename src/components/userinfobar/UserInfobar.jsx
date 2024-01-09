@@ -1,4 +1,4 @@
-import {getRandomGame} from "../helpers/getRandomGame.js";
+import {getRandomGame} from "../../helpers/getRandomGame.js";
 
 export function UserInfobar() {
     return (
