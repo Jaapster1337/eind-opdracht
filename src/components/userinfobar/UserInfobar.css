@@ -1,0 +1,24 @@
+.UserInfobar-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    min-width: 150px;
+    font-size: 0.75rem;
+    border: 2px solid grey;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info p{
+    text-align: center;
+    margin: 5px 0;
+}
+
+.fit-image{
+    display: block;
+    width: 100%;
+    height: auto;
+}

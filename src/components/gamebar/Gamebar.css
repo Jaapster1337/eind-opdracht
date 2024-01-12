@@ -1,0 +1,28 @@
+.Gamebar-container{
+    max-width: 200px;
+    min-width: 150px;
+    font-size: 1.25em;
+    border: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.game-img{
+    width:100px;
+    align-self: center;
+}
+
+.game-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.game-info p{
+    margin: 5px 0;
+}
+.title{
+    width: 100%;
+    background-color: lightgray;
+}
