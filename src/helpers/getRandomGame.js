@@ -24,11 +24,13 @@ async function randomGame(numberOfGames) {
             const response = await axios.get(`https://api.rawg.io/api/games/${randomNum}?key=${import.meta.env.VITE_REACT_API_KEY}`)
             if (response.status === 200) {
                 randomGamePick = response.data
+                console.log(randomGamePick)
                 validPage = true;
             }
         } catch (e) {
             console.error(e)
         }
     }
+
 return randomGamePick;
 }

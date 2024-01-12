@@ -1,8 +1,9 @@
-export function Footer(){
+import './Footer.css'
+export function Footer({text}){
     return(
         <>
-            <footer>
-                <p>Eindopdracht Frontend Novi Ernst-Jaap Boutens 2024</p>
+            <footer className="dynamic-height">
+                <p>{text}</p>
             </footer>
         </>
     )

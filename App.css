@@ -8,39 +8,27 @@
 .outer-container{
   display: flex;
 }
+
 .mid-section-wrapper{
   display: flex;
+  justify-content: space-between;
   height: calc(100vh - 15px - 25px);
 }
 
-footer{
-  text-align: center;
-  font-size: 10px;
-}
 .outer-content{
   display: flex;
   flex-direction: row;
 }
 
-.navbar{
-  display: flex;
-  justify-content: space-evenly;
-}
-
-
-
-
-.UserInfobar-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-  border: 2px solid grey;
-  height: calc(100vh - 15px - 25px);
-}
-
-.user-info{
+.full-page-wrapper{
   display: flex;
   flex-direction: column;
 }
+
+
+
+
+
+
+
 

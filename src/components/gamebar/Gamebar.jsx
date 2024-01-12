@@ -1,42 +1,60 @@
+import '../gamebar/Gamebar.css'
 import {getRandomGame} from "../../helpers/getRandomGame.js";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 
-export function Gamebar() {
+export function Gamebar({title}) {
 
-    const [game, setGame] = useState(null)
+    const [game, setGame] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchRandomGame() {
             try {
+                setLoading(true)
                 const randomGame = await getRandomGame();
                 setGame(randomGame)
             } catch (e) {
-                console.error("Error fetching random game:", e)
+                setError(error)
+                // console.error("Error fetching random game:", e)
+            } finally {
+                setLoading(false)
             }
         }
-        fetchRandomGame();
+
+        void fetchRandomGame();
     }, []);
-    console.log(game)
+
 
     return (
         <>
             <section className="Gamebar-container">
-                <div className="game-img" style={{backgroundImage: `url('${game ? game.background_image : ''}')`}}>
-                    {/*{game && <img src="" alt="game cover art"/>}*/}
-                </div>
-                {/*<script>*/}
-                {/*    const imagePath = {game.background_image};*/}
-                {/*    const element = document.getElementById('background-target');*/}
-                {/*    element.style.backgroundImage = `url('$imagePath')`;*/}
-                {/*</script>*/}
-                <div className="game-info">
-                    <p>{game ? game.name : 'Game Name'}</p>
-                    <p>{game ? (game.developers.length > 0 ? game.developers[0].name : 'Developer') : 'No developer found'}</p>
-                    <p>{game ? game.released : 'Release Date'}</p>
-                    <p>{game ? (game.genres.length > 0 ? game.genres[0].name : 'Game Genre' ) : 'No genres found'}</p>
-                    <p>{game ? (game.genres.length > 1 ? game.genres[1].name : '' ) : 'No genres found'}</p>
-                </div>
+                <div className="title"><p>{title}</p></div>
+                {loading && <p>Loading...</p>}
+                {error && <p>{error?.message}</p>}
+                {game ?
+                    <section>
+                        <div className="game-info">
+                            <Link to={game.background_image} target="_blank">
+                                <img className="game-img" src={game.background_image} alt="game image"/>
+                            </Link>
+                            <p>{game.name}</p>
+                            <p>{game.developers[0].name}</p>
+                            {game.publishers.length > 0 &&
+                                <p>{game.publishers[0].name}</p>
+                            }
+                            <p>{game.released}</p>
+                            {game.genres.length > 0 &&
+                                <p>{game.genres[0].name}</p>
+                            }
+                            {game.genres.length > 1 &&
+                                <p>{game.genres[1].name}</p>
+                            }
+
+                        </div>
+                    </section> : <p>no game found</p>}
             </section>
         </>
     )
