@@ -6,6 +6,7 @@ export function UserInfobar({title}) {
     return (
         <>
             <section className="UserInfobar-container">
+                <div className="title"><p>{title}</p></div>
                 <div className="user-img">
                     <img src={userImage} alt="user profile image" className="fit-image"/>
                 </div>
