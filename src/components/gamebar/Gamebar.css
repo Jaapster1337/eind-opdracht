@@ -1,6 +1,6 @@
 .Gamebar-container{
     max-width: 200px;
-    min-width: 150px;
+    min-width: 200px;
     font-size: 1.25em;
     border: 2px solid grey;
     display: flex;
@@ -10,7 +10,7 @@
 }
 
 .game-img{
-    width:100px;
+    width:100%;
     align-self: center;
 }
 

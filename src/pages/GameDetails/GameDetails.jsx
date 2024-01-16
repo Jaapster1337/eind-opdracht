@@ -1,12 +1,13 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {cycleGenres} from "../../helpers/cycleGenres.jsx";
 import axios from "axios";
 
 
 
-export function GameDetails({title}) {
+export function GameDetails() {
     const {id} = useParams();
-    const [game, setGame] = useState({});
+    const [game, setGame] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -21,22 +22,28 @@ export function GameDetails({title}) {
                 setError(error)
             }finally {
                 setLoading(false)
-                console.log("game", game)
             }
         }
-        void fetchGameById()
+        void fetchGameById();
     }, []);
+
+    useEffect(() => {
+        console.log("game", game);
+    }, [game]);
 
 
     return (
         <>
             <div className="detail-page-container">
+                {loading && <p>Loading...</p>}
                 {error && <p>{error?.message}</p>}
                 {game ?
                 <section>
-                    <h1>{id}</h1>
-                    <p>{}</p>
-                    <p>Made by (developers)</p>
+                    <h1>{game.name}</h1>
+                    <section className="genres-detailpage">Genres: {cycleGenres(game)}</section>
+                    <p>{game.description_raw}</p>
+                    <p>Made by {game.developers?.name} and released on {game.released}</p>
+
                 </section> : <p>no game found</p>}
             </div>
         </>
