@@ -3,8 +3,9 @@
     flex-direction: column;
     max-width: 200px;
     min-width: 150px;
-    font-size: 0.75rem;
+    font-size: 1.25em;
     border: 2px solid grey;
+    align-content: center;
 }
 
 .user-info{
@@ -21,4 +22,10 @@
     display: block;
     width: 100%;
     height: auto;
+}
+
+.title{
+    width: 100%;
+    background-color: lightgray;
+    text-align: center;
 }

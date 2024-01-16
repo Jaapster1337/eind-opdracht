@@ -37,7 +37,7 @@ export function Gamebar({title}) {
                 {game ?
                     <section>
                         <div className="game-info">
-                            <Link to={game.background_image} target="_blank">
+                            <Link to={`/GameDetails/${game.id}`} state={game}>
                                 <img className="game-img" src={game.background_image} alt="game image"/>
                             </Link>
                             <p>{game.name}</p>

@@ -6,6 +6,7 @@ import {UserInfobar} from "./components/userinfobar/UserInfobar.jsx";
 import {Gamebar} from "./components/gamebar/Gamebar.jsx";
 import {Footer} from "./components/footer/Footer.jsx";
 import {About} from "./pages/About/About.jsx";
+import {GameDetails} from  "./pages/GameDetails/GameDetails.jsx"
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
                         {/*<Route path="/played" element={<Played/>}/>*/}
                         {/*<Route path="/favorite" element={<Favorite/>}/>*/}
                         <Route path="/about" element={<About/>}/>
-                        {/*<Route path="/gamedetails/:id" element={<GameDetails/>}/>*/}
+                        <Route path="/gamedetails/:id" element={<GameDetails/>}/>
                     </Routes>
                     <UserInfobar
                     title="User info"/>
