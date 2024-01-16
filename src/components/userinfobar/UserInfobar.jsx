@@ -1,6 +1,6 @@
 import '../userinfobar/UserInfobar.css'
 import userImage from "../../assets/generic-user-image.png";
-import {getRandomGame} from "../../helpers/getRandomGame.js";
+import {Button} from "../button/Button.jsx";
 
 export function UserInfobar({title}) {
     return (
@@ -12,8 +12,12 @@ export function UserInfobar({title}) {
                 </div>
                 <div className="user-info">
                     <p>user name</p>
-                    <button type="button">Played</button>
-                    <button type="button" onClick={getRandomGame}>Favorite</button>
+                    <Button
+                    type="button"
+                    title="Played"/>
+                    <Button
+                    type="button"
+                    title="Favorites"/>
                     <p>created on</p>
                 </div>
             </section>

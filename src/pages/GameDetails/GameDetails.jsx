@@ -12,25 +12,29 @@ export function GameDetails({title}) {
 
     useEffect(() => {
         async function fetchGameById(){
+            console.log("function start")
             try{
                 setLoading(true)
-                const gameById = await axios.get(`https://api.rawg.io/api/games/${id}?key=${import.meta.env.VITE_REACT_API_KEY}`)
-                setGame(gameById.data)
-                console.log("game by id", gameById.data)
+                const fetchedGame = await axios.get(`https://api.rawg.io/api/games/${id}?key=${import.meta.env.VITE_REACT_API_KEY}`)
+                setGame(fetchedGame.data)
+                console.log("fetched game", fetchedGame.data)
             } catch(error){
                 setError(error)
             }finally {
                 setLoading(false)
-                console.log("game", game)
+
             }
         }
         void fetchGameById()
+        console.log("game", game)
     }, []);
 
 
     return (
         <>
+            {loading && <p>Loading...</p>}
             <div className="detail-page-container">
+
                 {error && <p>{error?.message}</p>}
                 {game ?
                 <section>
