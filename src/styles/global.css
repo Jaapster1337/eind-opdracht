@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=VT323&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +12,7 @@
     --clr-tertiary: #bef227;
     --clr-quaternary: #4f6216;
 
-    --font-family-primary: "Inter", sans-serif;
+    --font-family-primary: 'VT323', sans-serif;
     --font-family-secondary: "Roboto", sans-serif;
 
     --font-weight-light: 300;
@@ -35,7 +37,8 @@
 }
 
 body {
-
+    font-family: var(--font-family-primary);
+    font-size: 20px;
 }
 
 nav {
@@ -47,7 +50,7 @@ footer {
 }
 
 .main {
-    height: calc(100vh - var(--nav-height) - var(--footer-height));
+
 }
 
 .container {
