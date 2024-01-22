@@ -12,6 +12,7 @@ export function GameDetails() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+
         async function fetchGameById() {
             try {
                 setLoading(true)
@@ -22,10 +23,12 @@ export function GameDetails() {
                 setError(error)
             } finally {
                 setLoading(false)
+
             }
         }
 
         void fetchGameById();
+
     }, []);
 
     useEffect(() => {
@@ -35,8 +38,8 @@ export function GameDetails() {
 
     return (
         <>
+            {loading && <p>Loading...</p>}
             <div className="detail-page-container">
-                {loading && <p>Loading...</p>}
                 {error && <p>{error?.message}</p>}
                 {game ?
                     <section className="game-detail-content-wrapper">
