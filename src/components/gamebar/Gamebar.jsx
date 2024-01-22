@@ -18,7 +18,6 @@ export function Gamebar({title}) {
                 setGame(randomGame)
             } catch (e) {
                 setError(error)
-                // console.error("Error fetching random game:", e)
             } finally {
                 setLoading(false)
             }
