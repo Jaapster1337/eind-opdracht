@@ -6,12 +6,24 @@ export function Nav({firstLinkText, secondLinkText}) {
     return (
         <>
             <nav className="navbar dynamic-height">
-                <NavLink className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                <ul>
+                    <li>
+                <NavLink className={menuIsActiveCheck}
                          to="/">{firstLinkText}</NavLink>
-                <NavLink className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                    </li>
+                    <li>
+                <NavLink className={menuIsActiveCheck}
                          to="/about">{secondLinkText}</NavLink>
-                {/*<NavLink className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}*/}
-                {/*         to="/newPost">Nieuwe post</NavLink>*/}
+                    </li>
+                    <li>
+                <NavLink className={menuIsActiveCheck}
+                         to="/login">Login</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={menuIsActiveCheck}
+                                 to="/register">Register</NavLink>
+                    </li>
+                </ul>
             </nav>
         </>
     );

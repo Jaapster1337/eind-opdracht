@@ -1,5 +1,24 @@
 .navbar{
     display: flex;
     justify-content: space-evenly;
-    font-size: 1em;
+    color: var(--clr-quinary);
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--clr-quinary);
+}
+
+.navbar ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+}
+
+.active-menu-link{
+    border-bottom: 1px solid var(--clr-quinary) ;
+    text-decoration: none;
+}
+
+.default-menu-link{
+    border-bottom: 1px solid transparent ;
+    text-decoration: none;
 }

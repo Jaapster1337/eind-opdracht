@@ -41,14 +41,19 @@ export function GameDetails() {
                 {game ?
                     <section className="game-detail-content-wrapper">
                         <h1>{game.name}</h1>
+                        <hr className="custom-hr"/>
                         <section className="genres-detailpage">
-                            <h2>Genres:</h2>
+                            <h3>Genres:</h3>
+                            <hr className="custom-hr"/>
                             {cycleGenres(game)}
                         </section>
-                        <h2>Description</h2>
+                        <h3>Description</h3>
+                        <hr className="custom-hr"/>
                         <p>{game.description_raw}</p>
                         <div className="made-by-released">
-                        <p>Made by {game.developers?.name} and released on {game.released}</p>
+                            <h3>Developer information</h3>
+                            <hr className="custom-hr"/>
+                            <p>Made by {game.developers?.name} and released on {game.released}</p>
                         </div>
                     </section> : <p>no game found</p>}
             </div>
