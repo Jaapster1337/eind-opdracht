@@ -2,6 +2,7 @@ import "./GameDetails.css"
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {cycleGenres} from "../../helpers/cycleGenres.jsx";
+import {cycleDevs} from "../../helpers/cycleDevs.jsx"
 import axios from "axios";
 
 
@@ -53,7 +54,7 @@ export function GameDetails() {
                         <div className="made-by-released">
                             <h3>Developer information</h3>
                             <hr className="custom-hr"/>
-                            <p>Made by {game.developers?.name} and released on {game.released}</p>
+                            <p>Made by </p>{cycleDevs(game)}<p>and released on {game.released}</p>
                         </div>
                     </section> : <p>no game found</p>}
             </div>

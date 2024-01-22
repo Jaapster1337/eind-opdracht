@@ -58,6 +58,7 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
     padding: 0;
+    font-size: inherit;
     border: 0;
     vertical-align: baseline;
 }
@@ -66,6 +67,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 body {
     line-height: 1;
     font-size: 20px;
@@ -85,10 +87,9 @@ table {
     border-spacing: 0;
 }
 button, input, textarea{
-    font-family: inherit;
     color: inherit;
     font-family: var(--font-family-primary);
-    font-size: 20px;
+    font-size: inherit;
 }
 
 nav {

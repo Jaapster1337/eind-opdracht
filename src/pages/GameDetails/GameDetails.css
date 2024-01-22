@@ -5,5 +5,9 @@
 
 .custom-hr{
     border: 1px solid var(--clr-primary);
-]
+    margin-bottom: 0.5em;
+}
+
+.made-by-released {
+    display: inline;
 }
