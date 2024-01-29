@@ -4,7 +4,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
+
 
 :root {
     --clr-primary: #014422;
@@ -26,7 +28,7 @@
     --font-size-s: 16px;
 
     --max-page-width: 1200px;
-    --nav-height: 25px;
+    --nav-height: auto;
     --footer-height: 25px;
 
     --p-xxl: 4em;
@@ -93,7 +95,13 @@ button, input, textarea{
 }
 
 nav {
-    height: var(--nav-height);
+    height: 5vh;
+}
+
+.mid-section-wrapper{
+    display: flex;
+    justify-content: space-between;
+    min-height: 92vh;
 }
 
 nav a{
@@ -101,7 +109,7 @@ nav a{
 }
 
 footer {
-    height: var(--footer-height);
+    height: 3vh;
 }
 
 .main {

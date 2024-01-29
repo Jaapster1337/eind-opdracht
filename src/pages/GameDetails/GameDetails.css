@@ -11,3 +11,7 @@
 .made-by-released {
     display: inline;
 }
+
+.text-wrapper{
+    display: flex;
+}

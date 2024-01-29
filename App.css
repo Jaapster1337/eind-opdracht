@@ -9,11 +9,7 @@
   display: flex;
 }
 
-.mid-section-wrapper{
-  display: flex;
-  justify-content: space-between;
-  height: calc(100vh - var(--nav-height) - var(--footer-height));
-}
+
 
 .outer-content{
   display: flex;

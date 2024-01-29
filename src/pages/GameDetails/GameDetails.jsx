@@ -13,12 +13,13 @@ export function GameDetails() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+
         async function fetchGameById() {
             try {
                 setLoading(true)
                 const gameById = await axios.get(`https://api.rawg.io/api/games/${id}?key=${import.meta.env.VITE_REACT_API_KEY}`)
                 setGame(gameById.data)
-                console.log("game by id", gameById.data)
+                // console.log("game by id", gameById.data)
             } catch (error) {
                 setError(error)
             } finally {
@@ -30,7 +31,7 @@ export function GameDetails() {
     }, []);
 
     useEffect(() => {
-        console.log("game", game);
+        // console.log("game", game);
     }, [game]);
 
 
@@ -54,7 +55,7 @@ export function GameDetails() {
                         <div className="made-by-released">
                             <h3>Developer information</h3>
                             <hr className="custom-hr"/>
-                            <p>Made by </p>{cycleDevs(game)}<p>and released on {game.released}</p>
+                            <p>Made by {cycleDevs(game)} and released on {game.released}</p>
                         </div>
                     </section> : <p>no game found</p>}
             </div>

@@ -4,7 +4,7 @@ export function cycleGenres(game){
     for (let i = 0; i < game.genres.length; i++) {
         genres.push(game.genres[i].name)
     }
-    console.log(genres)
+    // console.log(genres)
     return(
         genres.map((genre, index) =>(
             <p key={index}>{genre}</p>
