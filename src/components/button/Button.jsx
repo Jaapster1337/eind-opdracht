@@ -1,8 +1,17 @@
 import './Button.css';
-export function Button({type, title}) {
+import {useNavigate} from "react-router-dom";
+export function Button({type, title, goto}) {
+
+    const navigate = useNavigate()
+
+    function handleClick(){
+        navigate(goto)
+    }
+
     return (
         <>
-            <button type={type}>{title}</button>
+            <button type={type} onClick={handleClick}>{title}</button>
         </>
     );
 }
+

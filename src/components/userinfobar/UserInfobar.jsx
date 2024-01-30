@@ -8,13 +8,14 @@ export function UserInfobar({title}) {
     const [error, setError] = useState(null);
     const [user, setUser] = useState(true)
 
+
     return (
         <>
             <section className="UserInfobar-container">
                 <div className="title"><p>{title}</p></div>
                 {loading && <p>Loading...</p>}
                 {error && <p>{error?.message}</p>}
-                {user ?
+                {!user ?
                     <section>
                         <div className="user-img">
                             <img src={userImage} alt="user profile image" className="fit-image"/>
@@ -29,7 +30,22 @@ export function UserInfobar({title}) {
                                 title="Favorites"/>
                             <p>created on</p>
                         </div>
-                    </section> : <p>no user found</p>
+                    </section> :
+                    <section className="not-logged-in">
+                        <p>no user found</p>
+                        <p>Would you like to</p>
+                        <Button
+                            type="button"
+                            title="Login"
+                            goto="/login"
+                        />
+                        <p>or</p>
+                        <Button
+                            type="button"
+                            title="Register"
+                            goto="/register"
+                        />
+                    </section>
                 }
             </section>
         </>
