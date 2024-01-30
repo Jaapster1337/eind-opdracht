@@ -14,13 +14,11 @@
 }
 
 .active-menu-link{
-    border-bottom: 1px solid var(--clr-quinary) ;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .default-menu-link{
-    border-bottom: 1px solid transparent ;
+    border: 1px solid transparent ;
     text-decoration: none;
-
     font-size: 1em;
 }

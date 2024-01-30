@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {cycleGenres} from "../../helpers/cycleGenres.jsx";
 import {cycleDevs} from "../../helpers/cycleDevs.jsx"
 import axios from "axios";
+import {Hr} from "../../components/hr/hr.jsx";
 
 
 export function GameDetails() {
@@ -31,8 +32,7 @@ export function GameDetails() {
     }, []);
 
     useEffect(() => {
-        // console.log("game", game);
-    }, [game]);
+    }, [id]);
 
 
     return (
@@ -43,21 +43,21 @@ export function GameDetails() {
                 {game ?
                     <section className="game-detail-content-wrapper">
                         <h1>{game.name}</h1>
-                        <hr className="custom-hr"/>
+                        <Hr classname="custom-hr"/>
                         <section className="genres-detailpage">
                             <h3>Genres:</h3>
-                            <hr className="custom-hr"/>
-                            {cycleGenres(game)}
+                            <Hr classname="custom-hr"/>                            {cycleGenres(game)}
                         </section>
                         <h3>Description</h3>
-                        <hr className="custom-hr"/>
+                        <Hr classname="custom-hr"/>
                         <p>{game.description_raw}</p>
                         <div className="made-by-released">
                             <h3>Developer information</h3>
-                            <hr className="custom-hr"/>
+                            <Hr classname="custom-hr"/>
                             <p>Made by {cycleDevs(game)} and released on {game.released}</p>
                         </div>
-                    </section> : <p>no game found</p>}
+                    </section> : <p>no game found</p>
+                }
             </div>
         </>
     );
