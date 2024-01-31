@@ -93,6 +93,10 @@ button, input, textarea{
     background: none;
 }
 
+button{
+    cursor: pointer;
+}
+
 nav {
     height: 5vh;
 }
@@ -126,4 +130,31 @@ footer {
 .custom-hr{
     border: 1px solid var(--clr-primary);
     margin-bottom: 0.5em;
+}
+
+.inner-form-wrapper{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: var(--clr-secondary);
+}
+
+/*form styling*/
+
+.inner-form-wrapper input{
+    background: lightgray;
+    border-style: solid;
+    border-color: var(--clr-secondary);
+    text-align: center;
+    margin: 10px;
+    box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.inner-form-wrapper button{
+    border-top: 5px solid #242424;
+}
+
+.full-page-wrapper h1{
+    text-align: center;
 }
