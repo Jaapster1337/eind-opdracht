@@ -46,7 +46,8 @@ export function GameDetails() {
                         <Hr classname="custom-hr"/>
                         <section className="genres-detailpage">
                             <h3>Genres:</h3>
-                            <Hr classname="custom-hr"/>                            {cycleGenres(game)}
+                            <Hr classname="custom-hr"/>
+                            {cycleGenres(game)}
                         </section>
                         <h3>Description</h3>
                         <Hr classname="custom-hr"/>

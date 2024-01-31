@@ -31,21 +31,24 @@ export function UserInfobar({title}) {
                             <p>created on</p>
                         </div>
                     </section> :
-                    <section className="not-logged-in">
+                    <>
                         <p>no user found</p>
-                        <p>Would you like to</p>
-                        <Button
-                            type="button"
-                            title="Login"
-                            goto="/login"
-                        />
-                        <p>or</p>
-                        <Button
-                            type="button"
-                            title="Register"
-                            goto="/register"
-                        />
-                    </section>
+                        <section className="not-logged-in">
+
+                            <p>Would you like to</p>
+                            <Button
+                                type="button"
+                                title="Login"
+                                goto="/login"
+                            />
+                            <p>or</p>
+                            <Button
+                                type="button"
+                                title="Register"
+                                goto="/register"
+                            />
+                        </section>
+                    </>
                 }
             </section>
         </>

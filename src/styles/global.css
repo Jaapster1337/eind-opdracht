@@ -6,7 +6,6 @@
     box-sizing: border-box;
 }
 
-
 :root {
     --clr-primary: #014422;
     --clr-secondary: #006727;
@@ -91,6 +90,7 @@ button, input, textarea{
     color: inherit;
     font-family: var(--font-family-primary);
     font-size: inherit;
+    background: none;
 }
 
 nav {
