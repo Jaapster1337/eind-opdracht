@@ -1,12 +1,14 @@
 import '../userinfobar/UserInfobar.css'
 import userImage from "../../assets/generic-user-image.png";
 import {Button} from "../button/Button.jsx";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 export function UserInfobar({title}) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [user, setUser] = useState(true)
+    const {isAuth, logOut} = useContext(AuthContext)
 
 
     return (
@@ -15,7 +17,7 @@ export function UserInfobar({title}) {
                 <div className="title"><p>{title}</p></div>
                 {loading && <p>Loading...</p>}
                 {error && <p>{error?.message}</p>}
-                {!user ?
+                {isAuth.user ?
                     <section>
                         <div className="user-img">
                             <img src={userImage} alt="user profile image" className="fit-image"/>
@@ -29,6 +31,7 @@ export function UserInfobar({title}) {
                                 type="button"
                                 title="Favorites"/>
                             <p>created on</p>
+                            <button type="button" onClick={logOut}>Log Out</button>
                         </div>
                     </section> :
                     <>

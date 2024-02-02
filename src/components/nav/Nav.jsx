@@ -15,14 +15,6 @@ export function Nav({firstLinkText, secondLinkText}) {
                 <NavLink className={menuIsActiveCheck}
                          to="/about">{secondLinkText}</NavLink>
                     </li>
-                    <li>
-                <NavLink className={menuIsActiveCheck}
-                         to="/login">Login</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={menuIsActiveCheck}
-                                 to="/register">Register</NavLink>
-                    </li>
                 </ul>
             </nav>
         </>

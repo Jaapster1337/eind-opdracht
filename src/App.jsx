@@ -9,6 +9,8 @@ import {About} from "./pages/About/About.jsx";
 import {GameDetails} from  "./pages/GameDetails/GameDetails.jsx"
 import {Login} from "./pages/Login/Login.jsx";
 import {Register} from "./pages/Register/Register.jsx";
+import {Profile} from "./pages/Profile/Profile.jsx";
+import {Admin} from "./pages/Admin/Admin.jsx";
 
 
 
@@ -31,6 +33,8 @@ function App() {
                         {/*<Route path="/favorite" element={<Favorite/>}/>*/}
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/about" element={<About/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/admin" element={<Admin/>}/>
                         <Route path="/gamedetails/:id" element={<GameDetails/>}/>
                     </Routes>
                     <UserInfobar
