@@ -1,4 +1,5 @@
 button {
     font-size: 1em;
-    border: 2px;
+    border: 1px solid var(--clr-quinary);
+    padding: 0 2px;
 }

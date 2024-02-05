@@ -1,5 +1,5 @@
 import '../App.css'
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import {Nav} from "./components/nav/Nav.jsx";
 import {Home} from "./pages/Home/Home.jsx";
 import {UserInfobar} from "./components/userinfobar/UserInfobar.jsx";
@@ -11,11 +11,13 @@ import {Login} from "./pages/Login/Login.jsx";
 import {Register} from "./pages/Register/Register.jsx";
 import {Profile} from "./pages/Profile/Profile.jsx";
 import {Admin} from "./pages/Admin/Admin.jsx";
-
-
+import {AuthContext} from "./context/AuthContext.jsx";
+import {useContext} from "react";
 
 
 function App() {
+    const {isAuth} = useContext(AuthContext)
+    const user = isAuth.user
     return (
         <>
             <div className="full-page-wrapper">
@@ -33,8 +35,8 @@ function App() {
                         {/*<Route path="/favorite" element={<Favorite/>}/>*/}
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/about" element={<About/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/admin" element={<Admin/>}/>
+                        <Route path="/profile" element={user ? <Profile/> : <Navigate to="/"/>}/>
+                        <Route path="/admin" element={user ? <Admin/> : <Navigate to="/"/>}/>
                         <Route path="/gamedetails/:id" element={<GameDetails/>}/>
                     </Routes>
                     <UserInfobar
