@@ -12,6 +12,7 @@
     --clr-tertiary: #248823;
     --clr-quaternary: #25A032;
     --clr-quinary:  #60A677;
+    --clr-background: #242424;
 
 
     --font-family-primary: 'VT323', sans-serif;
@@ -35,7 +36,7 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    background-color: var(--clr-background);
 }
 
 * {
@@ -43,6 +44,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -62,6 +64,7 @@ time, mark, audio, video {
     border: 0;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -74,18 +77,22 @@ body {
     font-family: var(--font-family-primary);
     color: var(--clr-quaternary);
 }
+
 ol, ul {
     list-style: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
 button, input, textarea{
     color: inherit;
     font-family: var(--font-family-primary);
@@ -98,18 +105,91 @@ button{
 }
 
 nav {
-    height: 5vh;
+    height: 7vh;
+    border-bottom: 2px solid ;
 }
 
 .mid-section-wrapper{
     display: flex;
     justify-content: space-between;
-    min-height: 92vh;
+    min-height: 90vh;
     font-size: inherit;
+    /*border-top: 2px solid var(--clr-quaternary);*/
 }
 
 nav a{
     color: var(--clr-quaternary);
+}
+
+.nav, button {
+    text-align: center;
+    font-weight: 400;
+}
+
+.nav *, button {
+    box-sizing: border-box;
+    transition: all .35s ease;
+}
+
+.nav li, button {
+    display: inline-block;
+    list-style: outside none none;
+    margin: .1em;
+    padding: 0;
+    align-self: center;
+}
+
+.nav a, button{
+    padding: .5em .8em;
+    color: var(--clr-quaternary);
+    position: relative;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav a::before,
+.nav a::after,
+button::before,
+button::after {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+}
+
+.nav a::before,
+button::before{
+    content: '';
+    right: 0;
+    top: 0;
+    border-top: 3px solid #3E8914;
+    border-right: 3px solid #2E640F;
+    transform: translate(-100%, 50%);
+}
+
+.nav a:after,
+button:after{
+    content: '';
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid #2E640F;
+    border-left: 3px solid #3E8914;
+    transform: translate(100%, -50%)
+}
+
+.nav a:hover:before,
+button:hover:before,
+.nav a:hover:after,
+button:hover:after{
+    transform: translate(0,0);
+    opacity: 1;
+}
+
+.nav a:hover,
+button:hover{
+    color: #3DA35D;
 }
 
 footer {
@@ -119,7 +199,6 @@ footer {
     align-items: center;
     font-size: 1em;
 }
-
 
 .container {
     max-width: var(--max-page-width);
@@ -137,7 +216,6 @@ footer {
     flex-direction: column;
     text-align: center;
     font-size: 1.5em;
-    background-color: var(--clr-secondary);
 }
 
 /*form styling*/
@@ -151,9 +229,7 @@ footer {
     box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.inner-form-wrapper button{
-    border-top: 5px solid #242424;
-}
+
 
 .full-page-wrapper h1{
     text-align: center;

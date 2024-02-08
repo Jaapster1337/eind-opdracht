@@ -44,23 +44,25 @@ export function Login() {
             <Hr classname="custom-hr"/>
             <form className="login-form" onSubmit={handleSubmit}>
                 <div className="inner-form-wrapper">
-                    <label htmlFor="email">Email</label>
-                    <input type="text"
-                           id="name"
-                           name="name"
-                           placeholder=">Username<"
-                           value={name}
-                           onChange={(e) => setName(e.target.value)}
-                    />
+                    <div className="background-wrapper">
+                        <label htmlFor="email">Email</label>
+                        <input type="text"
+                               id="name"
+                               name="name"
+                               placeholder=">Username<"
+                               value={name}
+                               onChange={(e) => setName(e.target.value)}
+                        />
 
-                    <label htmlFor="password">Password</label>
-                    <input type="password"
-                           id="password"
-                           name="password"
-                           placeholder=">Password<"
-                           value={password}
-                           onChange={(e) => setPassword(e.target.value)}
-                    />
+                        <label htmlFor="password">Password</label>
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               placeholder=">Password<"
+                               value={password}
+                               onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
                     <Button
                         type="submit"
                         title="Login"
