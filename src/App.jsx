@@ -11,33 +11,36 @@ import {Login} from "./pages/Login/Login.jsx";
 import {Register} from "./pages/Register/Register.jsx";
 import {Profile} from "./pages/Profile/Profile.jsx";
 import {Admin} from "./pages/Admin/Admin.jsx";
+import {Recommendations} from "./pages/recommendations/Recommendations.jsx";
 import {AuthContext} from "./context/AuthContext.jsx";
 import {useContext} from "react";
 
-
 function App() {
+
     const {isAuth} = useContext(AuthContext)
     const user = isAuth.user
+
+
     return (
         <>
             <div className="full-page-wrapper">
                 <Nav
                 firstLinkText = "Home"
-                secondLinkText = "Over dit project"
+                secondLinkText = "About"
                 />
                 <div className="mid-section-wrapper">
                     <Gamebar
                       title="Random game"/>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        {/*<Route path="/recommendations" element={<Recommendations/>}/>*/}
                         <Route path="/login" element={<Login/>}/>
-                        {/*<Route path="/favorite" element={<Favorite/>}/>*/}
                         <Route path="/register" element={<Register/>}/>
-                        <Route path="/about" element={<About/>}/>
                         <Route path="/profile" element={user ? <Profile/> : <Navigate to="/"/>}/>
                         <Route path="/admin" element={user ? <Admin/> : <Navigate to="/"/>}/>
+                        <Route path="/recommendations" element={user ? <Recommendations/> : <Navigate to="/"/>}/>
+                        <Route path="/about" element={<About/>}/>
                         <Route path="/gamedetails/:id" element={<GameDetails/>}/>
+                        {/*<Route path="/favorite" element={<Favorite/>}/>*/}
                     </Routes>
                     <UserInfobar
                     title="User info"/>

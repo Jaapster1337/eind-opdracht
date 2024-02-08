@@ -8,6 +8,7 @@ export function Profile() {
     return (
         <div>
             <h1>Welkom {isAuth.user.username}</h1>
+
         </div>
     );
 }

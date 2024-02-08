@@ -5,6 +5,7 @@ import {cycleGenres} from "../../helpers/cycleGenres.jsx";
 import {cycleDevs} from "../../helpers/cycleDevs.jsx"
 import axios from "axios";
 import {Hr} from "../../components/hr/hr.jsx";
+import {editReturnedDate} from "../../helpers/editReturnedDate.js";
 
 
 export function GameDetails() {
@@ -55,7 +56,7 @@ export function GameDetails() {
                         <div className="made-by-released">
                             <h3>Developer information</h3>
                             <Hr classname="custom-hr"/>
-                            <p>Made by {cycleDevs(game)} and released on {game.released}</p>
+                            <p>Made by {cycleDevs(game)} and released on {editReturnedDate(game.released)}</p>
                         </div>
                     </section> : <p>no game found</p>
                 }

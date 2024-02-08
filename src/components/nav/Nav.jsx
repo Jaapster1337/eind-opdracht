@@ -6,7 +6,7 @@ export function Nav({firstLinkText, secondLinkText}) {
     return (
         <>
             <nav className="navbar dynamic-height">
-                <ul>
+                <ul className="nav">
                     <li>
                 <NavLink className={menuIsActiveCheck}
                          to="/">{firstLinkText}</NavLink>

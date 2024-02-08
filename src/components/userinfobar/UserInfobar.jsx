@@ -18,19 +18,20 @@ export function UserInfobar({title}) {
                 {loading && <p>Loading...</p>}
                 {error && <p>{error?.message}</p>}
                 {isAuth.user ?
-                    <section>
+                    <section className="logged-in">
                         <div className="user-img">
                             <img src={userImage} alt="user profile image" className="fit-image"/>
                         </div>
                         <div className="user-info">
-                            <p>user name</p>
+                            <p>{isAuth.user.username}</p>
                             <Button
                                 type="button"
                                 title="Played"/>
+
                             <Button
                                 type="button"
                                 title="Favorites"/>
-                            <p>created on</p>
+                            <p>Created on:</p>
                             <button type="button" onClick={logOut}>Log Out</button>
                         </div>
                     </section> :

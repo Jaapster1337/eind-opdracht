@@ -8,21 +8,26 @@ export const AuthContext = createContext({});
 export function AuthContextProvider({children}) {
     const navigate = useNavigate()
     useEffect(() => {
-        console.log("Context wordt gerefresht!")
+        //check of er een token is in localstorage
         if(localStorage.getItem("token")){
+            //get en decode token
             const decoded = jwtDecode(localStorage.getItem("token"))
+            //get token
             const token = localStorage.getItem("token")
+            //fetch data met decoded en normale token
             void fetchUserData(decoded, token)
-            console.log("er is een token", token)
+            // console.log("er is een token", token)
         }else{
+            //als er geen token is update dan de isAuth
             setIsAuth({isAuth: false,
                 user:"",
                 status: "done",
             })
-            console.log("er is geen token")
+            // console.log("er is geen token")
         }
     }, []);
 
+    //declareer de isAuth in de useState en initialiseer als leeg
     const [isAuth, setIsAuth] = useState({
         isAuth: false, user: {
             email: "",
@@ -37,7 +42,7 @@ export function AuthContextProvider({children}) {
         setIsAuth({isAuth: false, user: ''});
         localStorage.removeItem("token")
         navigate('/')
-        console.log("Gebruiker is uitgelogd!")
+        //console.log("Gebruiker is uitgelogd!")
         setIsAuth({isAuth: false,
             user:"",
             status: "done",
@@ -51,15 +56,15 @@ export function AuthContextProvider({children}) {
             user: {...isAuth.user, email: email, password: password, token: token}
         }));
         localStorage.setItem("token", token)
-        console.log("token", token)
+        // console.log("token", token)
         const decoded = jwtDecode(token)
-        console.log("decoded", decoded)
+        // console.log("decoded", decoded)
         void fetchUserData(decoded, token)
     }
 
     async function fetchUserData(decoded, token) {
         const id = decoded.sub
-        console.log("id",id)
+        // console.log("id",id)
         try {
             const response = await axios.get(`https://api.datavortex.nl/gamesrecommendation/users/${id}`, {
                 headers: {
@@ -67,7 +72,7 @@ export function AuthContextProvider({children}) {
                     Authorization: `Bearer ${token}`,
                 }
             })
-            console.log("response", response)
+            // console.log("response", response)
             setIsAuth({isAuth: true, user:{
                     username: response.data.username,
                     email: response.data.email,
@@ -77,8 +82,6 @@ export function AuthContextProvider({children}) {
             })
         } catch (e) {
             console.error(e)
-        } finally {
-            navigate("/profile")
         }
     }
 
@@ -95,4 +98,3 @@ export function AuthContextProvider({children}) {
         </AuthContext.Provider>
     )
 }
-
