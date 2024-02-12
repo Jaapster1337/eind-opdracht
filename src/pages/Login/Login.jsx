@@ -19,22 +19,17 @@ export function Login() {
     }
 
     async function postLogIn() {
-        console.log("name", name)
-        console.log("password", password)
         try {
             const response = await axios.post(
                 `https://api.datavortex.nl/gamesrecommendation/users/authenticate`, {
                     "username": name,
                     "password": password,
                 })
-            console.log("response", response)
             logIn(name, password, response.data.jwt)
             console.log("postLogIn complete")
 
         } catch (e) {
             console.error(e)
-        } finally {
-            console.log("postlogin finally")
         }
     }
 

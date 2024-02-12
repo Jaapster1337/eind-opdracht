@@ -1,0 +1,32 @@
+.game-card{
+    display: flex;
+    border: 2px solid var(--clr-quaternary);
+    width: 50%;
+    font-size: 0.75em;
+}
+
+.text-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-wrapper p{
+    margin:0;
+}
+
+.game-display-case{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-image-container{
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.game-image{
+    width: 100%;
+    height: auto;
+}

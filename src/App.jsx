@@ -27,6 +27,7 @@ function App() {
                 <Nav
                 firstLinkText = "Home"
                 secondLinkText = "About"
+                thirdLinkText= " Recommendations"
                 />
                 <div className="mid-section-wrapper">
                     <Gamebar
