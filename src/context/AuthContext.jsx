@@ -60,6 +60,7 @@ export function AuthContextProvider({children}) {
         const decoded = jwtDecode(token)
         // console.log("decoded", decoded)
         void fetchUserData(decoded, token)
+        navigate('/profile')
     }
 
     async function fetchUserData(decoded, token) {

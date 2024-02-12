@@ -1,8 +1,4 @@
-{
-  "count": 51,
-  "next": "https://api.rawg.io/api/platforms?key=d4c551365baa454b818dcd5b806b3506&ordering=id&page=2&page_size=100",
-  "previous": null,
-  "results": [
+[
     {
       "id": 1,
       "name": "Xbox One",
@@ -1924,4 +1920,3 @@
       ]
     }
   ]
-}
