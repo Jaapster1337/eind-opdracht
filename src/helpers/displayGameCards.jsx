@@ -11,6 +11,7 @@ export function displayGameCards(games){
         games.map((game, index) =>(
             <GameDisplay
             key={index}
+            id={game.id}
             img={game.background_image}
             name={game.name}
             date={editReturnedDate(game.released)}

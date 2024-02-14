@@ -12,8 +12,10 @@ import {Register} from "./pages/Register/Register.jsx";
 import {Profile} from "./pages/Profile/Profile.jsx";
 import {Admin} from "./pages/Admin/Admin.jsx";
 import {Recommendations} from "./pages/recommendations/Recommendations.jsx";
+import {Favorited} from './pages/Favorited/Favorited.jsx'
 import {AuthContext} from "./context/AuthContext.jsx";
 import {useContext} from "react";
+import Played from "./pages/Played/Played.jsx";
 
 function App() {
 
@@ -27,7 +29,9 @@ function App() {
                 <Nav
                 firstLinkText = "Home"
                 secondLinkText = "About"
-                thirdLinkText= " Recommendations"
+                thirdLinkText= "Recommendations"
+                fourthLinktext= "Played"
+                fifthLinkText= "Favorites"
                 />
                 <div className="mid-section-wrapper">
                     <Gamebar
@@ -41,7 +45,8 @@ function App() {
                         <Route path="/recommendations" element={user ? <Recommendations/> : <Navigate to="/"/>}/>
                         <Route path="/about" element={<About/>}/>
                         <Route path="/gamedetails/:id" element={<GameDetails/>}/>
-                        {/*<Route path="/favorite" element={<Favorite/>}/>*/}
+                        <Route path="/favorited" element={user ? <Favorited/> : <Navigate to="/"/>}/>
+                        <Route path="/played" element={user ? <Played/> : <Navigate to="/"/>}/>
                     </Routes>
                     <UserInfobar
                     title="User info"/>

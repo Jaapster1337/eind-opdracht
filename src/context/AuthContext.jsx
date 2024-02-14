@@ -27,6 +27,8 @@ export function AuthContextProvider({children}) {
         }
     }, []);
 
+
+
     //declareer de isAuth in de useState en initialiseer als leeg
     const [isAuth, setIsAuth] = useState({
         isAuth: false, user: {
@@ -60,7 +62,7 @@ export function AuthContextProvider({children}) {
         const decoded = jwtDecode(token)
         // console.log("decoded", decoded)
         void fetchUserData(decoded, token)
-        navigate('/profile')
+
     }
 
     async function fetchUserData(decoded, token) {
@@ -73,7 +75,6 @@ export function AuthContextProvider({children}) {
                     Authorization: `Bearer ${token}`,
                 }
             })
-            // console.log("response", response)
             setIsAuth({isAuth: true, user:{
                     username: response.data.username,
                     email: response.data.email,
@@ -85,7 +86,6 @@ export function AuthContextProvider({children}) {
             console.error(e)
         }
     }
-
 
     const data = {
         isAuth,

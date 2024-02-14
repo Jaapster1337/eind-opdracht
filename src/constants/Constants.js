@@ -1,5 +1,5 @@
-export const genreOptions =
-    ["--Genre--",
+export const genreOptions = [
+        "--Genre--",
         "Racing",
         "Shooter",
         "Adventure",
@@ -18,7 +18,29 @@ export const genreOptions =
         "Casual",
         "Indie",
         "Massively Multiplayer",
-        "Platformer"]
+        "Platformer"
+];
+export const genresObject = {
+        "Racing": 1,
+        "Shooter": 2,
+        "Adventure": 3,
+        "Action": 4,
+        "RPG": 5,
+        "Fighting": 6,
+        "Puzzle": 7,
+        "Strategy": 10,
+        "Arcade": 11,
+        "Simulation": 14,
+        "Sports": 15,
+        "Card": 17,
+        "Family": 19,
+        "Board Games": 28,
+        "Educational": 34,
+        "Casual": 40,
+        "Indie": 51,
+        "Massively Multiplayer": 59,
+        "Platformer": 83
+};
 
 export const platformOptions = ['--Platform--',
         'Xbox One',

@@ -1,7 +1,8 @@
-// import "./Admin.css"
+import "./Admin.css"
 import {AuthContext} from "../../context/AuthContext.jsx";
 import {useContext} from "react";
 import {useAuthenticatedFetch} from "../../hooks/useAuthenticatedFetch.js";
+import {displayUsers} from "../../helpers/displayUsersForAdmin.jsx";
 
 
 export function Admin() {
@@ -11,9 +12,13 @@ export function Admin() {
     const {data, error, loading} = useAuthenticatedFetch('https://api.datavortex.nl/gamesrecommendation/users', token)
     console.log("data", data)
 
+
     return (
-        <div>
+        <div className="admin-page-wrapper">
             <h1>Welkom {isAuth.user.username}</h1>
+            <div className="user-display">
+                {displayUsers(data)}
+            </div>
         </div>
     );
 }
