@@ -1,11 +1,12 @@
 import "./GameDetails.css"
 import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {cycleGenres} from "../../helpers/cycleGenres.jsx";
 import {cycleDevs} from "../../helpers/cycleDevs.jsx"
 import axios from "axios";
 import {Hr} from "../../components/hr/hr.jsx";
 import {editReturnedDate} from "../../helpers/editReturnedDate.js";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 
 export function GameDetails() {
@@ -13,6 +14,13 @@ export function GameDetails() {
     const [game, setGame] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const {isAuth} = useContext(AuthContext)
+    // const gamesList ={
+    //     gameId : '',
+    //     gameName: '',
+    //     favorite: false,
+    //     played: false,
+    // }
 
     useEffect(() => {
 
@@ -32,15 +40,49 @@ export function GameDetails() {
         void fetchGameById();
     }, []);
 
-    useEffect(() => {
-    }, [id]);
+
+    function addToFavorites(){
+        const gameToAdd = {
+            gameId : `${game.id}`,
+            gameName: `${game.name}`,
+            favorite: true,
+            played: true,
+        }
+        const existingArrayString = localStorage.getItem(`gamesList-${isAuth.user.username}`)
+        const existingArray = existingArrayString ? JSON.parse(existingArrayString) : [];
+        if(!(existingArray.find(item => item.gameId === `${game.id}`))){
+            existingArray.push(gameToAdd)
+            const updatedString = JSON.stringify(existingArray)
+            localStorage.setItem(`gamesList-${isAuth.user.username}`, updatedString)
+        } else {
+            setError("Game already in favorites")
+        }
+    }
+
+    function addToPlayed(){
+        const gameToAdd = {
+            gameId : `${game.id}`,
+            gameName: `${game.name}`,
+            favorite: false,
+            played: true,
+        }
+        const existingArrayString = localStorage.getItem(`gamesList-${isAuth.user.username}`)
+        const existingArray = existingArrayString ? JSON.parse(existingArrayString) : [];
+        if(!(existingArray.find(item => item.gameId === `${game.id}`))){
+            existingArray.push(gameToAdd)
+            const updatedString = JSON.stringify(existingArray)
+            localStorage.setItem(`gamesList-${isAuth.user.username}`, updatedString)
+        } else {
+            setError("Game already in favorites")
+        }
+    }
 
 
     return (
         <>
             <div className="detail-page-container">
                 {loading && <p>Loading...</p>}
-                {error && <p>{error?.message}</p>}
+                {error && <p>{error?.message}{error}</p>}
                 {game ?
                     <section className="game-detail-content-wrapper">
                         <h1>{game.name}</h1>
@@ -58,6 +100,8 @@ export function GameDetails() {
                             <Hr classname="custom-hr"/>
                             <p>Made by {cycleDevs(game)} and released on {editReturnedDate(game.released)}</p>
                         </div>
+                        <button type="button" onClick={addToPlayed}>Add to Played</button>
+                        <button type="button" onClick={addToFavorites}>Add to Favorites</button>
                     </section> : <p>no game found</p>
                 }
             </div>

@@ -1,0 +1,16 @@
+.admin-page-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-display{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-info-wrapper{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--clr-quaternary);
+    margin: 5px;
+}

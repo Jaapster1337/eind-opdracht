@@ -4,7 +4,7 @@
     max-width: 200px;
     min-width: 200px;
     font-size: 1.25em;
-    border: 2px solid grey;
+    border-inline: 2px solid var(--clr-quinary);
     align-items: center;
 }
 

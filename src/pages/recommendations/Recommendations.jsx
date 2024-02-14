@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Recommendations.css'
 import {Dropdown} from "../../components/dropdown/Dropdown.jsx";
-import {genreOptions, platformOptions, platformsObject} from './../../constants/Constants.js'
+import {genreOptions, genresObject, platformOptions, platformsObject} from './../../constants/Constants.js'
 import {GameDisplay} from "../../components/gameDisplay/GameDisplay.jsx";
 import {displayGameCards} from "../../helpers/displayGameCards.jsx";
 import axios from "axios";
@@ -21,8 +21,10 @@ export function Recommendations() {
     }
 
     async function getGameRecommendations() {
+        console.log(genresObject[selectedValues["genre-dropdown"]])
+        console.log(platformsObject[selectedValues["platform-dropdown"]])
         try {
-            const response = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${selectedValues["genre-dropdown"].toLowerCase()}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}&page_size=60`)
+            const response = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}&page_size=60`)
             setGameRecommendations(response.data.results.slice(0, 10))
         } catch (e) {
             console.error(e)
@@ -32,8 +34,7 @@ export function Recommendations() {
     useEffect(() => {
         console.log(gameRecommendations)
     }, [gameRecommendations]);
-    //check with played
-
+    //check with Played
 
 
     return (
@@ -61,7 +62,7 @@ export function Recommendations() {
                         />
                         <p>Selected Platform: {selectedValues['platform-dropdown']}</p>
                     </div>
-                    <button type="button" onClick={()=>getGameRecommendations()}>Get recommendations!</button>
+                    <button type="button" onClick={() => getGameRecommendations()}>Get recommendations!</button>
                     <div className="game-display-case">
                         {gameRecommendations && displayGameCards(gameRecommendations)}
                     </div>
