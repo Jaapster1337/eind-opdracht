@@ -51,17 +51,18 @@ export function AuthContextProvider({children}) {
         })
     }
 
-    function logIn(email, password, token) {
+    function logIn(name, password, token) {
         setIsAuth((isAuth) => ({
             ...isAuth,
             isAuth: true,
-            user: {...isAuth.user, email: email, password: password, token: token}
+            user: {...isAuth.user, username: name, password: password, token: token}
         }));
         localStorage.setItem("token", token)
         // console.log("token", token)
         const decoded = jwtDecode(token)
         // console.log("decoded", decoded)
         void fetchUserData(decoded, token)
+        navigate('/profile')
 
     }
 

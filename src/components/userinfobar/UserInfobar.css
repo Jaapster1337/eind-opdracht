@@ -19,8 +19,8 @@
     margin: 5px 0;
 }
 
-.user-info button{
-
+.user-info a{
+    align-self: center;
 }
 
 .fit-image{

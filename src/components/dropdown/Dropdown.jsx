@@ -1,4 +1,5 @@
 import {useState} from "react";
+import './Dropdown.css'
 
 export function Dropdown({name, labelText, optionsArray, selectedValue, setSelectedValue}) {
     // const [selectedValue, setSelectedValue] = useState('')
@@ -8,7 +9,7 @@ export function Dropdown({name, labelText, optionsArray, selectedValue, setSelec
 
     return (
         <div>
-            <label htmlFor={name}>{labelText}</label>
+            <label htmlFor={name} className="dropdown-label">{labelText}</label>
             <select id={name} value={selectedValue} onChange={handleSelect}>
                 {optionsArray.map((option, index) => (<option key={index} value={option}>{option}</option> ))}
             </select>

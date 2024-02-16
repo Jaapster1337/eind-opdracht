@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-export function useUnauthenticatedFetch(url, query, config) {
+export function useAuthenticatedPost(url, config) {
 
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export function useUnauthenticatedFetch(url, query, config) {
         async function fetchData() {
             try {
                 setLoading(true);
-                const response = await axios.get(url, config);
+                const response = await axios.post(url, config);
                 setData(response.data);
             } catch (e) {
                 console.error("Error occured", e)
@@ -25,7 +25,7 @@ export function useUnauthenticatedFetch(url, query, config) {
         void fetchData()
 
 
-    }, [url, query]);
+    }, [url, config]);
 
     return {data, loading, error};
 }
