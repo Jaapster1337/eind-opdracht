@@ -15,12 +15,6 @@ export function GameDetails() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const {isAuth} = useContext(AuthContext)
-    // const gamesList ={
-    //     gameId : '',
-    //     gameName: '',
-    //     favorite: false,
-    //     played: false,
-    // }
 
     useEffect(() => {
 

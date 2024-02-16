@@ -15,6 +15,10 @@ export function GameDisplay({index, id, img, name, devs, date, platform, genres}
                 <p>{name}</p>
                 <p>{date}</p>
                 <p>{platform}</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
                 <p>{genres}</p>
             </div>
         </section>

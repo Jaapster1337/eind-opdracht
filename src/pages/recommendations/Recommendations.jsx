@@ -5,6 +5,7 @@ import {genreOptions, genresObject, platformOptions, platformsObject} from './..
 import {GameDisplay} from "../../components/gameDisplay/GameDisplay.jsx";
 import {displayGameCards} from "../../helpers/displayGameCards.jsx";
 import axios from "axios";
+import {pseudoRandomizer} from "../../helpers/pseudoRandomizer.js";
 
 export function Recommendations() {
     const [selectedValues, setSelectedValues] = useState({
@@ -21,11 +22,12 @@ export function Recommendations() {
     }
 
     async function getGameRecommendations() {
-        console.log(genresObject[selectedValues["genre-dropdown"]])
-        console.log(platformsObject[selectedValues["platform-dropdown"]])
         try {
-            const response = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}&page_size=60`)
-            setGameRecommendations(response.data.results.slice(0, 10))
+            const countResponse = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}`)
+            const count = countResponse.data.count
+            const pageNumber = pseudoRandomizer(count)
+            const response = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}&page=${pageNumber}&page_size=40`)
+            setGameRecommendations(response.data.results.slice(0,10))
         } catch (e) {
             console.error(e)
         }
@@ -44,7 +46,7 @@ export function Recommendations() {
                 <p>Here you can get some game recommendations by genre and platform. Select the options you want from
                     the lists and click the button to get your recommendations</p>
                 <form className="selectLists">
-                    <div className="genreSelect-dropdown">
+                    <div className="genre-select-dropdown">
                         <Dropdown
                             name="genre-dropdown"
                             labelText="Genre"
@@ -52,7 +54,6 @@ export function Recommendations() {
                             selectedValue={selectedValues['genre-dropdown']}
                             setSelectedValue={handleSelect}
                         />
-                        <p>Selected Genre: {selectedValues['genre-dropdown']}</p>
                         <Dropdown
                             name="platform-dropdown"
                             labelText="Platform"
@@ -60,7 +61,6 @@ export function Recommendations() {
                             selectedValue={selectedValues['platform-dropdown']}
                             setSelectedValue={handleSelect}
                         />
-                        <p>Selected Platform: {selectedValues['platform-dropdown']}</p>
                     </div>
                     <button type="button" onClick={() => getGameRecommendations()}>Get recommendations!</button>
                     <div className="game-display-case">

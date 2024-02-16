@@ -3,6 +3,7 @@ import userImage from "../../assets/generic-user-image.png";
 import {Button} from "../button/Button.jsx";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
+import {Link} from "react-router-dom";
 
 export function UserInfobar({title}) {
     const [loading, setLoading] = useState(false);
@@ -24,13 +25,18 @@ export function UserInfobar({title}) {
                         </div>
                         <div className="user-info">
                             <p>{isAuth.user.username}</p>
-                            <Button
-                                type="button"
-                                title="Played"/>
-
-                            <Button
-                                type="button"
-                                title="Favorites"/>
+                            <Link to={'/played'}>
+                                <Button
+                                    type="button"
+                                    title="Played"
+                                />
+                            </Link>
+                            <Link to="/favorited">
+                                <Button
+                                    type="button"
+                                    title="Favorites"
+                                />
+                            </Link>
                             <p>Created on:</p>
                             <button type="button" onClick={logOut}>Log Out</button>
                         </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-export function useUnauthenticatedPost(url, config) {
+export function useUnauthenticatedPost(url, query, config) {
 
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ export function useUnauthenticatedPost(url, config) {
         void fetchData()
 
 
-    }, [url, config]);
+    }, [url, query, config]);
 
     return {data, loading, error};
 }

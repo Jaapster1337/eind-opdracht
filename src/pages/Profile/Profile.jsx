@@ -7,6 +7,8 @@ export function Profile() {
     const {isAuth} = useContext(AuthContext)
 
     useEffect(() => {
+        // const localUser = localStorage.getItem()
+        console.log(isAuth.user)
         function createGameList(){
             if(!localStorage.getItem(`gamesList-${isAuth.user.username}`)){
                 localStorage.setItem(`gamesList-${isAuth.user.username}`,JSON.stringify([]))

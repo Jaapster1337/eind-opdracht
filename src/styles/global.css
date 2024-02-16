@@ -159,7 +159,7 @@ button::after {
     opacity: 0;
 }
 
-.nav a::before,
+.nav a::before, .active,
 button::before{
     content: '';
     right: 0;
@@ -170,7 +170,7 @@ button::before{
 }
 
 .nav a:after,
-button:after{
+button:after, .active{
     content: '';
     left: 0;
     bottom: 0;
