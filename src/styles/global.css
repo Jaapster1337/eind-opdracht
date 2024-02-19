@@ -112,7 +112,7 @@ nav {
 .mid-section-wrapper{
     display: flex;
     justify-content: space-between;
-    min-height: calc(100vh - var(--nav-height));
+    min-height: calc(100vh - var(--nav-height) - var(--footer-height));
     font-size: inherit;
     border-bottom: 2px solid var(--clr-quinary);
 }

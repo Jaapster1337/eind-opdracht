@@ -13,11 +13,14 @@ export function Login() {
     const {logIn} = useContext(AuthContext)
     const navigate = useNavigate()
 
+    //handleSubmit voor register formulier
+    //preventdefault voor voorkomen van refresh
     function handleSubmit(e) {
         e.preventDefault()
         void postLogIn()
     }
 
+    //asynchrone functie voor het oppsturen van username and password opstuurt, een jwt terugkrijgt en dit allemaal mee stuurt naar de logIn functie
     async function postLogIn() {
         try {
             const response = await axios.post(
@@ -26,7 +29,6 @@ export function Login() {
                     "password": password,
                 })
             logIn(name, password, response.data.jwt)
-            console.log("postLogIn complete")
 
         } catch (e) {
             console.error(e)
@@ -40,7 +42,7 @@ export function Login() {
             <form className="login-form" onSubmit={handleSubmit}>
                 <div className="inner-form-wrapper">
                     <div className="background-wrapper">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="name">Username</label>
                         <input type="text"
                                id="name"
                                name="name"
