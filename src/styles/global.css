@@ -76,6 +76,7 @@ body {
     font-size: 20px;
     font-family: var(--font-family-primary);
     color: var(--clr-quaternary);
+    /*scrollbar-color: #3DA35D #242424;*/
 }
 
 ol, ul {
@@ -112,7 +113,7 @@ nav {
 .mid-section-wrapper{
     display: flex;
     justify-content: space-between;
-    min-height: calc(100vh - var(--nav-height));
+    min-height: calc(100vh - var(--nav-height) - var(--footer-height));
     font-size: inherit;
     border-bottom: 2px solid var(--clr-quinary);
 }

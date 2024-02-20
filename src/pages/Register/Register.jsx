@@ -12,12 +12,14 @@ export function Register() {
     const navigate = useNavigate()
     const apiKey = import.meta.env.VITE_REACT_NOVI_API_KEY;
 
+    //handlesubmit voor het registratie formulier. preventdefault voorkomt refresh op submit. daarna word registerfunctie aangeroepen
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(name, email, password)
         void register()
     }
 
+    //asynchrone fucntie voor het opsturen van de registratiedata uit het formulier
+    //navigeert genruiker naar /login
     async function register() {
         try {
             const response = await axios.post(

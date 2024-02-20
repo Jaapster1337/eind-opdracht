@@ -5,7 +5,7 @@ import {useAuthenticatedFetch} from "../../hooks/useAuthenticatedFetch.js";
 import {displayUsers} from "../../helpers/displayUsersForAdmin.jsx";
 import {pseudoRandomizer} from "../../helpers/pseudoRandomizer.js";
 
-
+//deze pagina heeft als enige functie om de aangemaakte gebruikers in de database weer te geven
 export function Admin() {
     const {isAuth} = useContext(AuthContext)
     const token = localStorage.getItem("token")

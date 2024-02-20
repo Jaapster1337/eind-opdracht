@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     font-size: 1.25em;
+
 }
 
 select{
@@ -15,6 +16,13 @@ select{
 .genre-select-dropdown{
     display: flex;
     justify-content: space-between;
+    overflow: auto;
+
 }
 
-.genre-select-dropdown
+.page-wrapper{
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
