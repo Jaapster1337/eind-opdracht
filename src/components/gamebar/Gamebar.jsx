@@ -2,6 +2,7 @@ import '../gamebar/Gamebar.css'
 import {getRandomGame} from "../../helpers/getRandomGame.js";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {editReturnedDate} from "../../helpers/editReturnedDate.js";
 
 
 export function Gamebar({title}) {
@@ -23,7 +24,7 @@ export function Gamebar({title}) {
             }
         }
 
-        void fetchRandomGame();
+        // void fetchRandomGame();
     }, []);
 
 
@@ -44,7 +45,7 @@ export function Gamebar({title}) {
                             {game.publishers.length > 0 &&
                                 <p>{game.publishers[0].name}</p>
                             }
-                            <p>{game.released}</p>
+                            <p>{editReturnedDate(game.released)}</p>
                             {game.genres.length > 0 &&
                                 <p>{game.genres[0].name}</p>
                             }

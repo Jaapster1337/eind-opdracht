@@ -1,0 +1,49 @@
+.game-card{
+    display: flex;
+    border: 2px dashed var(--clr-quaternary);
+    width: 50%;
+    font-size: 0.75em;
+}
+.game-card:nth-child(2n),
+.game-card:nth-child(2n),
+.game-card:nth-child(2n),
+.game-card:nth-child(2n),
+.game-card:nth-child(2n){
+    display: flex;
+    border: 2px dashed var(--clr-quinary);
+    width: 50%;
+    font-size: 0.75em;
+}
+
+.text-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: .5em;
+    margin-left: .1em;
+    max-height: 100%;
+}
+
+.text-wrapper p{
+    margin:0;
+}
+
+.game-display-case{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.game-image-container{
+    display: flex;
+    align-items: center;
+    max-width: 40%;
+    min-width: 40%;
+}
+
+.game-image{
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    display: block;
+}

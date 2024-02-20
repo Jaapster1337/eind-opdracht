@@ -1,0 +1,9 @@
+.background-wrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-tertiary);
+}
+
+.background-wrapper label{
+    color: var(--clr-primary);
+}

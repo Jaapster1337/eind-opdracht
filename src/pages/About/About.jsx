@@ -1,6 +1,16 @@
 import "./About.css"
 import {Hr} from "../../components/hr/hr.jsx";
+import {getGenres} from "../../helpers/getGenres.js";
+import {useEffect, useState} from "react";
+import {Tesseract} from "../../components/tesseract/Tesseract.jsx";
+
 export function About() {
+
+    const [isVisible, setIsVisible] = useState(false);
+    const toggleVisibility = () => {
+        setIsVisible(!isVisible);
+    };
+
     return (
         <div className="about-wrapper">
             <h1>Game Recommendation Engine </h1>

@@ -1,0 +1,28 @@
+.selectLists{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25em;
+
+}
+
+select{
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background-color: var(--clr-background);
+    border: 1px solid green;
+}
+
+.genre-select-dropdown{
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+
+}
+
+.page-wrapper{
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
