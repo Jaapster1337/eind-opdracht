@@ -76,6 +76,7 @@ body {
     font-size: 20px;
     font-family: var(--font-family-primary);
     color: var(--clr-quaternary);
+    /*scrollbar-color: #3DA35D #242424;*/
 }
 
 ol, ul {

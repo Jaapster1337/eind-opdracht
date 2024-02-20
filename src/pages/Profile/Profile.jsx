@@ -8,21 +8,23 @@ export function Profile() {
 
     useEffect(() => {
         // const localUser = localStorage.getItem()
-        console.log(isAuth.user)
-        function createGameList(){
-            if(!localStorage.getItem(`gamesList-${isAuth.user.username}`)){
-                localStorage.setItem(`gamesList-${isAuth.user.username}`,JSON.stringify([]))
+        function createGameList() {
+            if (!localStorage.getItem(`gamesList-${isAuth.user.username}`)) {
+                localStorage.setItem(`gamesList-${isAuth.user.username}`, JSON.stringify([]))
             }
         }
+
         void createGameList()
     }, []);
 
     return (
         <div>
             <h1>Welkom {isAuth.user.username}</h1>
-            <p>This is your profile page</p>
-            <p>Your username is:  {isAuth.user.username}</p>
-            <p>Your email is: {isAuth.user.email} </p>
+            <div className="content-wrapper">
+                <p>This is your profile page</p>
+                <p>Your username is: {isAuth.user.username}</p>
+                <p>Your email is: {isAuth.user.email} </p>
+            </div>
 
         </div>
     );
