@@ -7,9 +7,5 @@ export function cycleGenres(game){
         const lastGenre = genres[genres.length - 1]
         genres[genres.length - 1] = lastGenre.substring(0, lastGenre.length )
         return genres.join(", ")
-    }else{
-        return (
-            <p>No genres provided</p>
-        )
     }
 }
