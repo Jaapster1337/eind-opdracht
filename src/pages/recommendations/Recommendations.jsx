@@ -30,20 +30,16 @@ export function Recommendations() {
         let requestString = ""
         if (selectedValues["genre-dropdown"].toString() === "--Genre--" && selectedValues["platform-dropdown"].toString() === "--Platform--") {
             setError("No genre or platform was submitted. No games can be shown")
-            // console.log(error)
         } else if (selectedValues["genre-dropdown"].toString() === "--Genre--") {
             setError(null)
-            console.log(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}`)
             requestString = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}`
             try {
                 //haalt met een request een count op van het aantal games wat overeenkomt met de query
                 const countResponse = await axios.get(`${requestString}`)
                 //response wordt in count gezet
                 const count = countResponse.data.count
-                console.log(count)
                 //count wordt gebruikt om een paginanummer te genereren
                 const pageNumber = pseudoRandomizer(count)
-                console.log(pageNumber)
                 //request met query wordt herhaald met een pagina nummer zodat er andere games per request uitkomen
                 const response = await axios.get(`${requestString}&page=${pageNumber}&page_size=40`)
                 //response wordt in gameRecommendations gezet
@@ -54,17 +50,14 @@ export function Recommendations() {
             }
         } else if (selectedValues["platform-dropdown"].toString() === "--Platform--") {
             setError(null)
-            console.log(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}`)
             requestString = `https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}`
             try {
                 //haalt met een request een count op van het aantal games wat overeenkomt met de query
                 const countResponse = await axios.get(`${requestString}`)
                 //response wordt in count gezet
                 const count = countResponse.data.count
-                console.log(count)
                 //count wordt gebruikt om een paginanummer te genereren
                 const pageNumber = pseudoRandomizer(count)
-                console.log(pageNumber)
                 //request met query wordt herhaald met een pagina nummer zodat er andere games per request uitkomen
                 const response = await axios.get(`${requestString}&page=${pageNumber}&page_size=40`)
                 //response wordt in gameRecommendations gezet
@@ -75,16 +68,13 @@ export function Recommendations() {
             }
         } else {
             setError(null)
-            console.log(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}`)
             try {
                 //haalt met een request een count op van het aantal games wat overeenkomt met de query
                 const countResponse = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}`)
                 //response wordt in count gezet
                 const count = countResponse.data.count
-                console.log(count)
                 //count wordt gebruikt om een paginanummer te genereren
                 const pageNumber = pseudoRandomizer(count)
-                console.log(pageNumber)
                 //request met query wordt herhaald met een pagina nummer zodat er andere games per request uitkomen
                 const response = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_REACT_API_KEY}&genres=${genresObject[selectedValues["genre-dropdown"]]}&platforms=${platformsObject[selectedValues["platform-dropdown"]]}&page=${pageNumber}&page_size=40`)
                 //response wordt in gameRecommendations gezet

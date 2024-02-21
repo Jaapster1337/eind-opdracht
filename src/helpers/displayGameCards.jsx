@@ -5,8 +5,6 @@ import {cycleGenres} from "./cycleGenres.jsx";
 import {cyclePlatforms} from "./cyclePlatforms.js";
 
 export function displayGameCards(games){
-    // console.log(games)
-
     if(games.length > 0){
         return(
         games.map((game, index) =>(

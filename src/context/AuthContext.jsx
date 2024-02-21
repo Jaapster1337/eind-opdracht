@@ -64,7 +64,6 @@ export function AuthContextProvider({children}) {
         void fetchUserData(decoded, token)
         //if statement om admin door te sturen naar de admin pagina ander ga je naar profile
         if (name === "admin") {
-            console.log(name)
             navigate('/admin');
         } else {
             navigate('/profile');

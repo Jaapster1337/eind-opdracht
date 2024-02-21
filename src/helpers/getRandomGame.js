@@ -8,7 +8,7 @@ export async function getRandomGame() {
         numberOfGames = totalGames.data.count
         return await randomGame(numberOfGames)
     } catch (e) {
-        console.log("Error occured", e)
+        console.error(e)
         throw e;
     }
 }
@@ -24,7 +24,6 @@ async function randomGame(numberOfGames) {
             const response = await axios.get(`https://api.rawg.io/api/games/${randomNum}?key=${import.meta.env.VITE_REACT_API_KEY}`)
             if (response.status === 200) {
                 randomGamePick = response.data
-                //console.log(randomGamePick)
                 validPage = true;
             }
         } catch (e) {
