@@ -13,11 +13,15 @@ export function Admin() {
     const {data, error, loading} = useAuthenticatedFetch('https://api.datavortex.nl/gamesrecommendation/users', token)
 
     return (
-        <div className="admin-page-wrapper">
-            <h1>Welkom {isAuth.user.username}</h1>
-            <div className="user-display">
-                {displayUsers(data)}
+        <>
+            {loading && <p>Loading...</p>}
+            {error && error.message || error}
+            <div className="admin-page-wrapper">
+                <h1>Welkom {isAuth.user.username}</h1>
+                <div className="user-display">
+                    {displayUsers(data)}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
