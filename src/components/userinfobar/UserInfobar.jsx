@@ -37,7 +37,19 @@ export function UserInfobar({title}) {
                                     title="Favorites"
                                 />
                             </Link>
-                            <p>Created on:</p>
+                            {isAuth.user.username === "admin" ?
+                                <Link to={'/admin'}>
+                                    <Button
+                                    type="button"
+                                    title="Profile"/>
+                                </Link>
+                                :
+                                <Link to={'/admin'}>
+                                    <Button
+                                        type="button"
+                                        title="Profile"/>
+                                </Link>}
+
                             <button type="button" onClick={logOut}>Log Out</button>
                         </div>
                     </section> :

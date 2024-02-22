@@ -24,7 +24,7 @@ export function Gamebar({title}) {
             }
         }
 
-        // void fetchRandomGame();
+         void fetchRandomGame();
     }, []);
 
 

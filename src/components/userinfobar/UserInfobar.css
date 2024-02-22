@@ -21,6 +21,7 @@
 
 .user-info a{
     align-self: center;
+    color: inherit;
 }
 
 .fit-image{
